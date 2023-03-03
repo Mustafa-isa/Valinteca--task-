@@ -89,6 +89,7 @@ function addModul(elementShowed){
 
 
     let modul = document.querySelector(".modul")
+    window.location.href ="#modul"
     let modulcontent = document.getElementById("modulcontent")
 modul.classList.add("show")
 let sourceImg = elementShowed.querySelector("img").src
