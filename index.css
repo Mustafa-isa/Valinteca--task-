@@ -194,3 +194,31 @@ height: 70%;
 
 
 }
+.dropdown{
+    width: 270px;
+    background-color: #fff;
+    position: absolute;
+height: 80%;
+top: 13%;
+right: 0;
+color: #000;
+transition: .7s ease;
+transform: translateY(-400%);
+
+}
+.dropdown.shown{
+transform: translateY(0%);
+
+}
+.dropdown .deleteFromMODUL{
+    position: absolute;
+    outline: none;
+    border: 0;
+    font-size: 30px;
+    top:10px;
+    color: #000;
+    background-color: transparent;
+    right: 10%;
+    cursor: pointer;
+
+}

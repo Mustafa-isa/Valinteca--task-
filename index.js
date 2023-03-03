@@ -111,3 +111,21 @@ deleteFromMODUL.addEventListener('click' ,function(){
 })
 }
 showElement()
+//show  down side
+function showSide(){
+let minu =document.querySelector(".dropdown")
+let cart = document.querySelector(".cart")
+let hideBtn =  document.querySelector(".deleteFromMODUL")
+function downSide(){
+
+    minu.classList.add("shown")
+}
+function hide(){
+    minu.classList.remove("shown")
+
+}
+cart.addEventListener('click' ,downSide)
+hideBtn.addEventListener('click' , hide)
+}
+// 
+showSide()
