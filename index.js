@@ -156,7 +156,7 @@ const addCart = function () {
         btn.innerText = "add";
         btn.setAttribute("add__to_cart", false);
         removeProduct(slideArr, id);
-        cartBtnDel()
+
         
       }
     });
@@ -167,7 +167,7 @@ addCart();
 
 // delete product from array on click
 function removeProduct(arr, id) {
-  cartBtnDel()
+
   const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
 
   if (objWithIdIndex > -1) {
@@ -198,28 +198,12 @@ itemContent.innerHTML +=`
 <h2> ${el.name}</h2>
 <p>${el.price} <i class="fa-solid fa-dollar-sign"></i></p>
 </div>
-<button class="deleteBtn" id="${el.id}">remove</button>
 </div>
 
 `
 })
-cartBtnDel()
+
  }
 
  renderCart()
- //del product fromm cart
- function cartBtnDel(){
-  let delBtn= document.querySelectorAll(".deleteBtn")
-
-  delBtn.forEach(function(btn){
-    btn.addEventListener('click' ,function(){
-let id =btn.getAttribute("id")
-console.log(btn)
-console.log(id)
-removeProduct(slideArr, id);
-renderCart()
-    })
-  })
- }
- cartBtnDel()
-///end
+ //end

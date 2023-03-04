@@ -263,6 +263,9 @@ text-transform: capitalize;
 
     font-size: 11px;
     text-transform: capitalize;
+padding: 7px 15px;
+background-color: #087D77;
+border-radius: 10px;
 
 }
 .item-container .item i{
