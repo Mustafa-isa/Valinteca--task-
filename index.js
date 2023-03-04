@@ -119,9 +119,15 @@ showSide();
 ///add product to cart
 const addCart = function () {
   let addBtn = document.querySelectorAll(".add");
+  for(let i= 1  ;i =addBtn.length; i++){
+
+console.log(addBtn[i])
+
+  }
   addBtn.forEach((btn) => {
 
     btn.addEventListener("click", function () {
+      console.log(btn)
         let unic =Math.random()
         let id
       if (btn.getAttribute("add__to_cart") === "false") {
@@ -154,18 +160,22 @@ console.log(id)
         btn.innerText ='add'
         btn.setAttribute("add__to_cart", false)
 
-        slideArr =slideArr.filter(el => {
-            
-            
-          return  el.id ==id ? "" :el
-        
-        })
+        removeProduct(slideArr , id)
       }
     });
   });
 };
 //
 addCart();
-//add number of products that added to cart to icon 
-console.log(num)
-document.getElementById("numProduct").innerText = num
+
+// delete product from array on click
+function removeProduct(arr, id) {
+  const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
+
+  if (objWithIdIndex > -1) {
+    arr.splice(objWithIdIndex, 1);
+  }
+
+  return arr;
+}
+console.log(slideArr)
