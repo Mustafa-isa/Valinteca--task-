@@ -141,7 +141,7 @@ const addCart = function () {
           name: nameAdded,
           price: priceAdded,
           img: sourceImgAdded,
-          id: num,
+          id: Math.random(),
         };
         id = product.id;
 
@@ -156,6 +156,7 @@ const addCart = function () {
         btn.innerText = "add";
         btn.setAttribute("add__to_cart", false);
         removeProduct(slideArr, id);
+        cartBtnDel()
         
       }
     });
@@ -166,6 +167,7 @@ addCart();
 
 // delete product from array on click
 function removeProduct(arr, id) {
+  cartBtnDel()
   const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
 
   if (objWithIdIndex > -1) {
@@ -184,8 +186,8 @@ console.log(itemContent)
 console.log(slideArr)
 itemContent.innerHTML =''
 
-let arr =[...slideArr]
-arr.forEach(function(el)
+
+slideArr.forEach(function(el)
 {
 
 itemContent.innerHTML +=`
@@ -201,6 +203,23 @@ itemContent.innerHTML +=`
 
 `
 })
-
+cartBtnDel()
  }
+
  renderCart()
+ //del product fromm cart
+ function cartBtnDel(){
+  let delBtn= document.querySelectorAll(".deleteBtn")
+
+  delBtn.forEach(function(btn){
+    btn.addEventListener('click' ,function(){
+let id =btn.getAttribute("id")
+console.log(btn)
+console.log(id)
+removeProduct(slideArr, id);
+renderCart()
+    })
+  })
+ }
+ cartBtnDel()
+///end
