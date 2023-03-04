@@ -37,8 +37,8 @@ let data = [
     added_to_cart: false,
   },
 ];
-let slideArr =[]
-let num =0
+let slideArr = [];
+let num = 0;
 //render element in page
 
 const container = document.querySelector(".container");
@@ -100,6 +100,7 @@ function addModul(elementShowed) {
   });
 }
 showElement();
+document.getElementById("numProduct").innerText = 0;
 //show  down side
 function showSide() {
   let minu = document.querySelector(".dropdown");
@@ -119,48 +120,41 @@ showSide();
 ///add product to cart
 const addCart = function () {
   let addBtn = document.querySelectorAll(".add");
-  for(let i= 1  ;i =addBtn.length; i++){
 
-console.log(addBtn[i])
-
-  }
   addBtn.forEach((btn) => {
-
     btn.addEventListener("click", function () {
-      console.log(btn)
-        let unic =Math.random()
-        let id
+      console.log(btn);
+
       if (btn.getAttribute("add__to_cart") === "false") {
-        num++
-        document.getElementById("numProduct").innerText = num
+        num++;
+        document.getElementById("numProduct").innerText = num;
         console.log("add");
-        btn.setAttribute("add__to_cart", true)
-        btn.innerText ='remove'
+        btn.setAttribute("add__to_cart", true);
+        btn.innerText = "remove";
         let productAdded = btn.closest(".product");
 
- let sourceImgAdded = productAdded.querySelector("img").src;
-  let nameAdded = productAdded.querySelector(".name").innerText;
-  let priceAdded = productAdded.querySelector(".price").innerText;
+        let sourceImgAdded = productAdded.querySelector("img").src;
+        let nameAdded = productAdded.querySelector(".name").innerText;
+        let priceAdded = productAdded.querySelector(".price").innerText;
 
-  let product ={
+        let product = {
+          name: nameAdded,
+          price: priceAdded,
+          img: sourceImgAdded,
+          id: num,
+        };
+        id = product.id;
 
-    name:nameAdded,
-    price:priceAdded,
-    img:sourceImgAdded,
-    id :unic
-  }
-  id =product.id
-console.log(id)
-  slideArr.push(product)
-  console.log(slideArr)
+        slideArr.push(product);
+        console.log(slideArr);
       } else {
-        num--
-        document.getElementById("numProduct").innerText = num
+        num--;
+        document.getElementById("numProduct").innerText = num;
         console.log("remove");
-        btn.innerText ='add'
-        btn.setAttribute("add__to_cart", false)
+        btn.innerText = "add";
+        btn.setAttribute("add__to_cart", false);
 
-        removeProduct(slideArr , id)
+        removeProduct(slideArr, id);
       }
     });
   });
@@ -178,4 +172,6 @@ function removeProduct(arr, id) {
 
   return arr;
 }
-console.log(slideArr)
+
+
+
