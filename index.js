@@ -38,6 +38,7 @@ let data = [
   },
 ];
 let slideArr =[]
+let num =0
 //render element in page
 
 const container = document.querySelector(".container");
@@ -124,6 +125,8 @@ const addCart = function () {
         let unic =Math.random()
         let id
       if (btn.getAttribute("add__to_cart") === "false") {
+        num++
+        document.getElementById("numProduct").innerText = num
         console.log("add");
         btn.setAttribute("add__to_cart", true)
         btn.innerText ='remove'
@@ -141,10 +144,12 @@ const addCart = function () {
     id :unic
   }
   id =product.id
-
+console.log(id)
   slideArr.push(product)
   console.log(slideArr)
       } else {
+        num--
+        document.getElementById("numProduct").innerText = num
         console.log("remove");
         btn.innerText ='add'
         btn.setAttribute("add__to_cart", false)
@@ -161,3 +166,6 @@ const addCart = function () {
 };
 //
 addCart();
+//add number of products that added to cart to icon 
+console.log(num)
+document.getElementById("numProduct").innerText = num
