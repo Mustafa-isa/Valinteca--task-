@@ -131,6 +131,8 @@ margin:  0 -10px -10px;
     border-radius: 10px ;
     border: 0;
     cursor: pointer;
+    font-size: 12px;
+    
 
 }
 .modul{
@@ -181,7 +183,7 @@ height: 70%;
 .modulcontent p i{
     color: rgba(131, 171, 12, 0.455);
 }
-.modulcontent button.deleteFromMODUL{
+.modulcontent .deleteFromMODUL{
     position: absolute;
     outline: none;
     border: 0;
@@ -198,12 +200,15 @@ height: 70%;
     width: 270px;
     background-color: #fff;
     position: absolute;
-height: 80%;
+min-height: 80%;
 top: 13%;
 right: 0;
 color: #000;
 transition: .7s ease;
 transform: translateY(-400%);
+padding: 20px;
+border: 5px solid #087D77;
+
 
 }
 .dropdown.shown{
@@ -220,5 +225,67 @@ transform: translateY(0%);
     background-color: transparent;
     right: 10%;
     cursor: pointer;
+}
+.item-container .item{
+
+
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+.item-container{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+margin: 10px;
+margin-top: 23px;
+padding-bottom: 10px;
+border-bottom: 1px solid #087D77;
+
+    
+}
+.item-container .item img{
+
+width: 80px;
+height: 80px;
+border-radius: 50%;
+border: 2px solid #087D77;
+
+}
+.item-container .item h2{
+font-size: 13px;
+text-transform: capitalize;
+    
+}
+.item-container .item p{
+
+    font-size: 11px;
+    text-transform: capitalize;
+
+}
+.item-container .item i{
+
+    color: rgb(222, 179, 9);
+}
+.item-container .deleteBtn{
+
+    border: none;
+    outline: none;
+    background-color: #087D77;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 10px;
+
+    display: block;
+    width: 70px;
+    margin-left: auto;
+    margin-top: -10px;
+    font-size: 11px;
+    cursor: pointer;
+
+    text-transform: capitalize;
+    
 
 }

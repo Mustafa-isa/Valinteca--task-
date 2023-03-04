@@ -147,14 +147,16 @@ const addCart = function () {
 
         slideArr.push(product);
         console.log(slideArr);
+    renderCart()
+
       } else {
         num--;
         document.getElementById("numProduct").innerText = num;
         console.log("remove");
         btn.innerText = "add";
         btn.setAttribute("add__to_cart", false);
-
         removeProduct(slideArr, id);
+        
       }
     });
   });
@@ -168,10 +170,37 @@ function removeProduct(arr, id) {
 
   if (objWithIdIndex > -1) {
     arr.splice(objWithIdIndex, 1);
+    renderCart()
   }
 
   return arr;
+ 
 }
+//render element to cart and delete it 
 
+ function renderCart(){
+let itemContent = document.querySelector(".down-container")
+console.log(itemContent)
+console.log(slideArr)
+itemContent.innerHTML =''
 
+let arr =[...slideArr]
+arr.forEach(function(el)
+{
 
+itemContent.innerHTML +=`
+<div class="item-container">
+<div class="item">
+  <img src="${el.img}" alt="">
+
+<h2> ${el.name}</h2>
+<p>${el.price} <i class="fa-solid fa-dollar-sign"></i></p>
+</div>
+<button class="deleteBtn" id="${el.id}">remove</button>
+</div>
+
+`
+})
+
+ }
+ renderCart()
