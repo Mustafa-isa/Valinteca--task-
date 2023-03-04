@@ -37,8 +37,21 @@ let data = [
     added_to_cart: false,
   },
 ];
-let slideArr = [];
-let num = 0;
+let slideArr
+let num 
+if(localStorage.getItem('dataCart')){
+
+slideArr = JSON.parse(localStorage.getItem('dataCart'))
+}else{
+  slideArr =[]
+}
+if(localStorage.getItem('num')){
+
+  num =localStorage.getItem('num')
+  }else{
+   num =0
+  }
+
 //render element in page
 
 const container = document.querySelector(".container");
@@ -147,6 +160,7 @@ const addCart = function () {
 
         slideArr.push(product);
         console.log(slideArr);
+        localStorage.setItem("dataCart" ,JSON.stringify(slideArr))
     renderCart()
 
       } else {
@@ -163,6 +177,7 @@ const addCart = function () {
   });
 };
 //
+localStorage.setItem("num" ,num)
 addCart();
 
 // delete product from array on click
